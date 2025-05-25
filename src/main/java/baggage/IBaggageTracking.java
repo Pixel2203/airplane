@@ -1,16 +1,20 @@
 // src/main/java/baggage/IBaggageTracking.java
 package baggage;
 
+import components.Booking;
+import components.conveyorBelt.ConveyorBelt;
+import tag.Tag;
+
 import java.util.Optional;
 
 public interface IBaggageTracking {
-    void registerBaggage(Baggage baggage);
-    void updateBaggageLocation(String barcodeTag, String newLocation);
-    void updateBaggageStatus(String barcodeTag, BaggageStatus newStatus);
-    Optional<Baggage> getBaggage(String barcodeTag);
-    void removeBaggage(String barcodeTag);
-    boolean isConveyorFull(String conveyorName);
-    void setConveyorStatus(String conveyorName, boolean isFull);
-    void addBufferedBaggage(String intermediateChannelName, String barcodeTag);
-    Optional<String> removeOldestBufferedBaggage(String intermediateChannelName);
+
+    void removeBaggage(Tag tag);
+    boolean isConveyorFull(String conveyorBeltName);
+    void registerBaggage(Tag tag, Booking booking);
+    void updateBaggageStatus(Tag tag, BaggageStatus newStatus);
+    Optional<Booking> getBookingByTag(Tag tag);
+    void addBufferedBaggage(ConveyorBelt conveyorBelt, Baggage baggage);
+    Optional<Baggage> removeOldestBufferedBaggage(ConveyorBelt conveyorBelt);
+    void setConveyorStatus(String conveyorBeltName, boolean isFull);
 }

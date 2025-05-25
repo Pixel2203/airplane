@@ -3,80 +3,81 @@ package components;// src/main/java/components.CentralControlModule.java
 import baggage.Baggage;
 import baggage.BaggageStatus;
 import baggage.IBaggageTracking;
+import components.conveyorBelt.ConveyorBelt;
+import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
+import tag.Tag;
 
 import java.util.*;
 
 @Slf4j
+@Builder
 public class CentralControlModule implements IBaggageTracking {
-    private final Map<String, Baggage> baggageMap; // Key: barcodeTag, Value: Baggage object
-    private final Map<String, Boolean> conveyorStatus; // Key: conveyorName, Value: isFull
-    private final Map<String, Deque<String>> intermediateChannelBuffers; // Key: channelName, Value: Queue of barcodeTags
 
-    public CentralControlModule() {
-        this.baggageMap = new HashMap<>();
-        this.conveyorStatus = new HashMap<>();
-        this.intermediateChannelBuffers = new HashMap<>();
+    @Builder.Default
+    private final Map<String, BaggageStatus> baggageStatusMap = new HashMap<>();
+    @Builder.Default
+    private final Map<String , Boolean> conveyorStatus = new HashMap<>(); // Key: conveyorName, Value: isFull
+    @Builder.Default
+    private final Map<ConveyorBelt, Deque<Baggage>> channelBuffer = new HashMap<>(); // Key: channelName, Value: Queue of barcodeTags
+    @Builder.Default
+    private final Map<String, Booking> checkedInBookings = new HashMap<>();
+
+    @Override
+    public void registerBaggage(Tag tag, Booking booking) {
+        baggageStatusMap.put(tag.getCode() , BaggageStatus.CHECKED_IN);
+        log.debug("Control Module: Registered baggage {}", tag.getCode());
+        checkedInBookings.put(tag.getCode(), booking);
     }
 
     @Override
-    public void registerBaggage(Baggage baggage) {
-        baggageMap.put(baggage.getBarcodeTag(), baggage);
-        log.debug("Control Module: Registered baggage {}", baggage.getBarcodeTag());
-    }
-
-    @Override
-    public void updateBaggageLocation(String barcodeTag, String newLocation) {
-        Optional.ofNullable(baggageMap.get(barcodeTag)).ifPresent(baggage -> {
-            baggage.setCurrentLocation(newLocation);
-            log.debug("Control Module: Updated baggage {} location to {}", barcodeTag, newLocation);
-        });
-    }
-
-    @Override
-    public void updateBaggageStatus(String barcodeTag, BaggageStatus newStatus) {
-        Optional.ofNullable(baggageMap.get(barcodeTag)).ifPresent(baggage -> {
-            baggage.setStatus(newStatus);
-            log.debug("Control Module: Updated baggage {} status to {}", barcodeTag, newStatus);
-        });
-    }
-
-    @Override
-    public Optional<Baggage> getBaggage(String barcodeTag) {
-        return Optional.ofNullable(baggageMap.get(barcodeTag));
-    }
-
-    @Override
-    public void removeBaggage(String barcodeTag) {
-        baggageMap.remove(barcodeTag);
-        log.debug("Control Module: Removed baggage {} from system.", barcodeTag);
-    }
-
-    @Override
-    public boolean isConveyorFull(String conveyorName) {
-        return conveyorStatus.getOrDefault(conveyorName, false);
-    }
-
-    @Override
-    public void setConveyorStatus(String conveyorName, boolean isFull) {
-        conveyorStatus.put(conveyorName, isFull);
-        log.info("Control Module: Conveyor {} status set to isFull={}", conveyorName, isFull);
-    }
-
-    @Override
-    public void addBufferedBaggage(String intermediateChannelName, String barcodeTag) {
-        intermediateChannelBuffers.computeIfAbsent(intermediateChannelName, k -> new ArrayDeque<>()).offer(barcodeTag);
-        log.debug("Control Module: Added baggage {} to {} buffer.", barcodeTag, intermediateChannelName);
-    }
-
-    @Override
-    public Optional<String> removeOldestBufferedBaggage(String intermediateChannelName) {
-        Deque<String> buffer = intermediateChannelBuffers.get(intermediateChannelName);
-        if (buffer != null && !buffer.isEmpty()) {
-            String barcode = buffer.poll();
-            log.debug("Control Module: Removed oldest baggage {} from {} buffer.", barcode, intermediateChannelName);
-            return Optional.of(barcode);
+    public void updateBaggageStatus(Tag tag, BaggageStatus newStatus) {
+        if(baggageStatusMap.containsKey(tag.getCode())) {
+            baggageStatusMap.put(tag.getCode(), newStatus);
+            log.info("Control Module: Updating baggage {}", tag.getCode());
         }
-        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Booking> getBookingByTag(Tag tag) {
+        return Optional.of(this.checkedInBookings.get(tag.getCode()));
+    }
+
+    @Override
+    public void removeBaggage(Tag tag) {
+        baggageStatusMap.remove(tag.getCode());
+    }
+
+    @Override
+    public boolean isConveyorFull(String conveyorBeltName) {
+        if(this.conveyorStatus.containsKey(conveyorBeltName)) {
+            return this.conveyorStatus.get(conveyorBeltName);
+        };
+        return false;
+    }
+
+    @Override
+    public void setConveyorStatus(String conveyorBeltName, boolean isFull) {
+        conveyorStatus.put(conveyorBeltName, isFull);
+        log.info("Control Module: Conveyor status set to isFull={}", isFull);
+    }
+
+    @Override
+    public void addBufferedBaggage(ConveyorBelt belt, Baggage baggage) {
+        Deque<Baggage> list = this.channelBuffer.get(belt);
+        if(list == null) {
+            list = new ArrayDeque<>();
+        }
+        list.offer(baggage);
+        this.channelBuffer.put(belt, list);
+        log.debug("Control Module: Added baggage {} to buffer.", baggage.getTag().getCode());
+    }
+
+    @Override
+    public Optional<Baggage> removeOldestBufferedBaggage(ConveyorBelt conveyorBelt) {
+        Deque<Baggage> list = this.channelBuffer.get(conveyorBelt);
+
+        if(list.isEmpty()) return Optional.empty();
+        return Optional.of(list.poll());
     }
 }

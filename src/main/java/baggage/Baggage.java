@@ -13,19 +13,4 @@ import tag.Tag;
 @ToString
 public class Baggage {
     private Tag tag;
-    private String currentLocation;
-
-
-    /*
-    @Override
-    public String toString() {
-        return "Baggage{" +
-               "barcodeTag='" + tag + '\'' +
-               ", currentLocation='" + currentLocation + '\'' +
-               ", status=" + status +
-               ", destination='" + destination + '\'' +
-               '}';
-    }
-
-     */
 }

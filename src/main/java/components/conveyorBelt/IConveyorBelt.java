@@ -5,5 +5,5 @@ import baggage.Baggage;
 
 public interface IConveyorBelt {
     void receiveBaggage(Baggage baggage);
-    void transferBaggage(Baggage baggage, String nextComponentName);
+    void transferBaggage(Baggage baggage);
 }

@@ -2,7 +2,8 @@
 package components.checkInCounter;
 
 import baggage.Baggage;
+import components.Booking;
 
 public interface ICheckInCounter {
-    Baggage checkInBaggage(String barcodeTag, String destination);
+    void checkIn(Baggage baggage, Booking booking);
 }

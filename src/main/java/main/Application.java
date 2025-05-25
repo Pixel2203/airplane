@@ -1,24 +1,7 @@
 // src/main/java/main/Application.java
 package main;
 
-import baggage.Baggage;
-import baggage.BaggageStatus;
-import baggage.IBaggageTracking;
-import components.CentralControlModule;
-import components.checkInCounter.CheckInCounter;
-import components.checkInCounter.ICheckInCounter;
-import components.conveyorBelt.ConveyorBelt;
-import components.conveyorBelt.IConveyorBelt;
-import components.gateBelt.GateBelt;
-import components.gateBelt.IGateBelt;
-import components.gripper.Gripper;
-import components.gripper.IGripper;
-import components.intermediateChannel.IIntermediateChannel;
-import components.intermediateChannel.IntermediateChannel;
-import components.scanningArea.IScanningArea;
-import components.scanningArea.ScanningArea;
-import components.sortingArea.ISortingArea;
-import components.sortingArea.SortingArea;
+
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
@@ -28,9 +11,9 @@ import java.util.stream.IntStream;
 @Slf4j
 public class Application {
     private static final Random RANDOM = new Random();
-    private static final String[] DESTINATIONS = {"JFK", "LAX", "LHR", "FRA", "CDG"};
-
+/*
     public static void main(String... args) {
+        /*
         // Initialize Central Control Module
         IBaggageTracking controlModule = new CentralControlModule();
 
@@ -62,7 +45,7 @@ public class Application {
             String destination = DESTINATIONS[RANDOM.nextInt(DESTINATIONS.length)];
 
             log.info("\n--- Processing Baggage {} ---", barcode);
-            Baggage newBaggage = checkInCounter.checkInBaggage(barcode, destination);
+            Baggage newBaggage = checkInCounter.checkIn(barcode, destination);
             delay(100);
 
             incomingConveyor.receiveBaggage(newBaggage);
@@ -139,4 +122,6 @@ public class Application {
             log.error("Simulation delay interrupted.", e);
         }
     }
+    */
+
 }

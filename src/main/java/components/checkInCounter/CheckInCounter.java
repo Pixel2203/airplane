@@ -2,8 +2,8 @@
 package components.checkInCounter;
 
 import baggage.Baggage;
-import baggage.BaggageStatus;
 import baggage.IBaggageTracking;
+import components.Booking;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import tag.Gate;
@@ -15,16 +15,14 @@ public class CheckInCounter implements ICheckInCounter {
     private final IBaggageTracking controlModule;
 
     @Override
-    public Baggage checkInBaggage(Gate destination) {
-        Tag tag = Tag.builder().destination(destination).build();
-
-        Baggage baggage = Baggage.builder()
-                .tag(tag)
-                .currentLocation("Check-in Counter")
-                .status(BaggageStatus.CHECKED_IN)
+    public void checkIn(Baggage baggage, Booking booking) {
+        Tag tag = Tag.builder()
+                .gate(booking.getDepartureGate())
+                .destination(booking.getDestination())
                 .build();
-        controlModule.registerBaggage(baggage);
-        log.info("Baggage {} checked in at Check-in Counter, destination: {}", barcodeTag, destination);
-        return baggage;
+
+        baggage.setTag(tag);
+        controlModule.registerBaggage(tag, booking);
+        log.info("Baggage checked in at Check-in Counter, destination: {}", tag.getDestination());
     }
 }

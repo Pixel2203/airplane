@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c21722a7-01a1-40d7-9139-67a845d066a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/components/Booking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/components/Container.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/components/IReceiveable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/baggage/Baggage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/baggage/Baggage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/baggage/BaggageStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/baggage/BaggageStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/baggage/IBaggageTracking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/baggage/IBaggageTracking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/CentralControlModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/CentralControlModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/checkInCounter/CheckInCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/checkInCounter/CheckInCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/checkInCounter/ICheckInCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/checkInCounter/ICheckInCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/conveyorBelt/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/conveyorBelt/ConveyorBelt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/conveyorBelt/IConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/conveyorBelt/IConveyorBelt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/gateBelt/GateBelt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/gateBelt/IGateBelt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/gripper/Gripper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/gripper/Gripper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/intermediateChannel/IIntermediateChannel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/intermediateChannel/IntermediateChannel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/scanningArea/ScanningArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/scanningArea/ScanningArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/sortingArea/ISortingArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/sortingArea/ISortingArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/sortingArea/SortingArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/sortingArea/SortingArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tag/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tag/Tag.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="baggageTransportSystem3" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2xaoR7OQLWquGVQQpycz6qwmfe4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.dhbw [:Main.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c21722a7-01a1-40d7-9139-67a845d066a7" name="Changes" comment="" />
+      <created>1748185534158</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748185534158</updated>
+      <workItem from="1748185535346" duration="7327000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/components/scanningArea/ScanningArea.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/components/sortingArea/SortingArea.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
