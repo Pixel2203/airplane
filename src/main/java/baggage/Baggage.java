@@ -13,4 +13,5 @@ import tag.Tag;
 @ToString
 public class Baggage {
     private Tag tag;
+    private BaggageStatus status;
 }
